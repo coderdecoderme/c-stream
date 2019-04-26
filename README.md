@@ -7,4 +7,5 @@
 ---
 
 ### _ANY ADVERTISEMENTS OR PROMOS ARE STREAMED FROM THE OBD API AND NOT FROM THE APP_
-[C - STREAM](https://www.google.com)
+### Check it out Here
+[C - STREAM](http://www.c-stream.tk)
