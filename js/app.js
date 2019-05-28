@@ -16,7 +16,7 @@ const globalContoller = (function() {
       e.preventDefault();
     });
 
-    window.addEventListener("click", outsideClick);
+    // window.addEventListener("click", outsideClick);
   }
   eventListeners();
 })();
@@ -152,17 +152,43 @@ const call = () => {
 function openModal(movieId) {
   modal.style.display = "block";
   // import crawler.js
-  if (movieId == "tt4154796") {
-    // import crawler.js
-    videoframe.src = "https://verystream.com/e/gbk7ojRmY8C";
-  } else if (movieId == "tt0448115") {
-    videoframe.src = "https://oload.press/embed/MKumw2u6ytU/Shazam%21.2019.NOL";
-  } else if ((movieId = "tt6146586")) {
-    videoframe.src = "https://verystream.com/e/QTxYq6nt1Ai/";
-  } else if ((movieId = "tt4633694")) {
-    videoframe.src = "https://verystream.com/e/6SRwrcyPjrD/";
-  } else {
-    videoframe.src = `https://api.odb.to/embed?imdb_id=${movieId}`;
+
+  switch (movieId) {
+    case "tt4154796":
+      videoframe.src = "https://vidlox.me/embed-46r95r00tr42.html";
+      break;
+    case "tt0448115":
+      videoframe.src =
+        "https://oload.press/embed/MKumw2u6ytU/Shazam%21.2019.NOL";
+      break;
+    case "tt6146586":
+      videoframe.src = "https://verystream.com/e/QTxYq6nt1Ai/";
+      break;
+    case "tt4633694":
+      videoframe.src = "https://verystream.com/e/6SRwrcyPjrD/";
+      break;
+    case "tt2274648":
+      videoframe.src = "https://verystream.com/e/aqxA9g6TaxA/";
+      break;
+    case "tt3861390":
+      videoframe.src = "https://openload.co/embed/CQPjuZqImX0";
+      break;
+    case "tt5884052":
+      videoframe.src = "https://vidlox.me/embed-2hy06edcfzy6.html";
+      break;
+    case "tt6139732":
+      videoframe.src = "https://vidlox.me/embed-4b9gdae1f76w.html";
+      break;
+    case "tt3741700":
+      videoframe.src =
+        "https://verystream.com/e/TMavSYNjkVY/Godzilla-_King_of_the_Monsters_TV_Spot_-_%27Knock_You_Out%27_-_Movieclips_Trailers.mp4";
+      break;
+    case "tt4154664":
+      videoframe.src =
+        "https://verystream.com/e/4kNU6Yo5QPe/Captain_Marvel_2019.HDRip.XviD.AC3-EVO.avi.mp4";
+      break;
+    default:
+      videoframe.src = `https://api.odb.to/embed?imdb_id=${movieId}`;
   }
 }
 
@@ -172,10 +198,10 @@ function closeModal() {
   videoframe.src = "";
 }
 
-// ANOTHER WAY TO CLOSE THE MODAL
-function outsideClick(e) {
-  if (e.target == modal) {
-    modal.style.display = "none";
-    videoframe.src = "";
-  }
-}
+// //ANOTHER WAY TO CLOSE THE MODAL
+// function outsideClick(e) {
+//   if (e.target == modal) {
+//     modal.style.display = "none";
+//     videoframe.src = "";
+//   }
+// }
