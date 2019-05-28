@@ -3,12 +3,13 @@ const modal = document.querySelector("#my-modal");
 const videoframe = document.querySelector(".video");
 const convertable = document.getElementById("container");
 
-axios(' https://api.odb.to/identity?imdb_id=tt3861390&api_key=78fb2ebed5bacf5d56100d0b4dd77330')
-  .then(res => {
-    console.log(res);
-  })
+axios(
+  " https://api.odb.to/identity?imdb_id=tt3861390&api_key=78fb2ebed5bacf5d56100d0b4dd77330"
+).then(res => {
+  console.log(res);
+});
 // GLOBAL CONTROLLER
-const globalContoller = (function () {
+const globalContoller = (function() {
   function eventListeners() {
     document.addEventListener("submit", e => {
       call();
@@ -150,9 +151,20 @@ const call = () => {
 // OPENING THE MODAL
 function openModal(movieId) {
   modal.style.display = "block";
-  videoframe.src = `https://api.odb.to/embed?imdb_id=${movieId}`;
+  // import crawler.js
+  if (movieId == "tt4154796") {
+    // import crawler.js
+    videoframe.src = "https://verystream.com/e/gbk7ojRmY8C";
+  } else if (movieId == "tt0448115") {
+    videoframe.src = "https://oload.press/embed/MKumw2u6ytU/Shazam%21.2019.NOL";
+  } else if ((movieId = "tt6146586")) {
+    videoframe.src = "https://verystream.com/e/QTxYq6nt1Ai/";
+  } else if ((movieId = "tt4633694")) {
+    videoframe.src = "https://verystream.com/e/6SRwrcyPjrD/";
+  } else {
+    videoframe.src = `https://api.odb.to/embed?imdb_id=${movieId}`;
+  }
 }
-
 
 // CLOSING THE MODAL
 function closeModal() {

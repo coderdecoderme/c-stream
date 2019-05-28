@@ -616,7 +616,7 @@ body {
   font-weight: 900;
 }
 
-.container__single .details__go-back {
+.details__go-back {
   font-weight: 300;
   font-size: 1.5rem;
   line-height: 1;
@@ -625,23 +625,24 @@ body {
 }
 
 @media only screen and (max-width: 56.25em) {
-  .container__single .details__go-back {
+  .details__go-back {
     width: 100%;
   }
 }
 
 @media only screen and (max-width: 37.5em) {
-  .container__single .details__go-back {
+  .details__go-back {
     margin-bottom: 2rem;
     padding: 1rem 3rem;
   }
 }
 
-.container__single .details__go-back i {
+.details__go-back i {
   font-size: 2.5rem;
   font-weight: 400;
   margin-right: 10px;
 }
+
 
 .details__imdb {
   margin-right: auto;
@@ -716,8 +717,8 @@ body {
   color: #fff;
 
   background-image: linear-gradient(to bottom right,
-    var(--color-primary),
-    var(--color-primary-light));
+      var(--color-primary),
+      var(--color-primary-light));
   box-shadow: var(--shadow-light);
 }
 

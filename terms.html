@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="img/popcorn.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+    <title>C-STREAM| HOME</title>
+</head>
+
+<body>
+    <!-- THE MAIN CONTAINER - HOLDS EVERYTHING -->
+    <div class="container-home">
+        <header class="header">
+            <a href="index.html"><img src="img/popcorn.svg" alt="LOGO" class="logo" /></a>
+
+            <form action="#" class="search">
+                <input type="text" class="search__input" placeholder="Enter the Movie Title" />
+                <button class="search__button">
+                    <svg class="search__icon">
+                        <use xlink:href="img/sprite.svg#icon-magnifying-glass"></use>
+                    </svg>
+                </button>
+            </form>
+        </header>
+
+        <!-- THE MAIN SECTION -->
+
+        <div class="content">
+            <main class="movie-view">
+                <!-- SWITCH CONTAINER - ACTS AS BOTH THE HOME PAGE AND MOVIE LISTING PAGE -->
+                <div id="container" class="home"></div>
+            </main>
+        </div>
+    </div>
+
+    <!-- BASIC SCRIPTING -->
+    <script>
+        const searchBtn = document.querySelector(".search__button");
+
+        // BASE - HOME
+        document.onload = (() => {
+            let home = document.querySelector(".home");
+            home.innerHTML = `
+<div class="container__home">
+    <div class="container__home-left">
+            
+          </div>
+          <div class="container__home-right">
+            <h1 class="container__home-title">THANK YOU FOR USING C-STREAM</h1>
+            <p class="container__home-text">
+              BUT BEFORE YOU DO , WE JUST WANT TO LET YOU KNOW TH ETERMS AND CONDITIONS OF USING OUR APPLICATION
+            </p>
+            <p class="container__home-text">WE DO NOT HOLD ANY MEDIA CONTENT ON OUR SERVERS , ALL THE THE CONTENT SHARED IN THIS APPLICATION IS FROM A EXTERNAL API OR A SERVER</p>
+            <p class="container__home-text">🔥 WE ARE NOT RESOPONSIBLE IS STREAMING THESE CONTENT IS BANNED IN YOUR REGION (COUNTRY)</p>
+          </div>
+        </div>
+        <hr>
+        </hr>
+        <div class="home-secondary">
+          
+          <H2>WITH THAT BEING SAID PLEASE 🎉 ENJOY YOUR CONTENT</H2>
+          <p>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0</a></p>
+          <p>Powered by <a href="http://www.omdbapi.com/">OMDB</a> & <a href="https://api.odb.to/">OBD</a></p>
+          <br>
+          <a class="button details__go-back" href="index.html">
+                    BACK
+                </a>
+        </div>
+`;
+            console.log("Worked");
+        })();
+
+        // SEARCH BUTTON FUNCTIONALITY
+        searchBtn.addEventListener("click", e => {
+            call();
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+
+</html>
