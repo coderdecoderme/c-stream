@@ -1,3 +1,45 @@
+document.addEventListener(
+  "keydown",
+  function() {
+    if (event.keyCode == 123) {
+      alert(
+        "This function has been disabled to prevent you from stealing my code!"
+      );
+      return false;
+    } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
+      alert(
+        "This function has been disabled to prevent you from stealing my code!"
+      );
+      return false;
+    } else if (event.ctrlKey && event.keyCode == 85) {
+      alert(
+        "This function has been disabled to prevent you from stealing my code!"
+      );
+      return false;
+    }
+  },
+  false
+);
+
+if (document.addEventListener) {
+  document.addEventListener(
+    "contextmenu",
+    function(e) {
+      alert(
+        "This function has been disabled to prevent you from stealing my code!"
+      );
+      e.preventDefault();
+    },
+    false
+  );
+} else {
+  document.attachEvent("oncontextmenu", function() {
+    alert(
+      "This function has been disabled to prevent you from stealing my code!"
+    );
+    window.event.returnValue = false;
+  });
+}
 // Get DOM Elements
 const modal = document.querySelector("#my-modal");
 const videoframe = document.querySelector(".video");
@@ -148,48 +190,25 @@ const call = () => {
   getMovies(searchtext);
 };
 
+function file_get_contents(filename) {
+  fetch(filename)
+    .then(resp => resp.text())
+    .then(function(data) {
+      return data;
+    });
+}
 // OPENING THE MODAL
 function openModal(movieId) {
   modal.style.display = "block";
   // import crawler.js
-
-  switch (movieId) {
-    case "tt4154796":
-      videoframe.src = "https://vidlox.me/embed-46r95r00tr42.html";
-      break;
-    case "tt0448115":
-      videoframe.src =
-        "https://oload.press/embed/MKumw2u6ytU/Shazam%21.2019.NOL";
-      break;
-    case "tt6146586":
-      videoframe.src = "https://verystream.com/e/QTxYq6nt1Ai/";
-      break;
-    case "tt4633694":
-      videoframe.src = "https://verystream.com/e/6SRwrcyPjrD/";
-      break;
-    case "tt2274648":
-      videoframe.src = "https://verystream.com/e/aqxA9g6TaxA/";
-      break;
-    case "tt3861390":
-      videoframe.src = "https://openload.co/embed/CQPjuZqImX0";
-      break;
-    case "tt5884052":
-      videoframe.src = "https://vidlox.me/embed-2hy06edcfzy6.html";
-      break;
-    case "tt6139732":
-      videoframe.src = "https://vidlox.me/embed-4b9gdae1f76w.html";
-      break;
-    case "tt3741700":
-      videoframe.src =
-        "https://verystream.com/e/TMavSYNjkVY/Godzilla-_King_of_the_Monsters_TV_Spot_-_%27Knock_You_Out%27_-_Movieclips_Trailers.mp4";
-      break;
-    case "tt4154664":
-      videoframe.src =
-        "https://verystream.com/e/4kNU6Yo5QPe/Captain_Marvel_2019.HDRip.XviD.AC3-EVO.avi.mp4";
-      break;
-    default:
-      videoframe.src = `https://api.odb.to/embed?imdb_id=${movieId}`;
-  }
+  fetch(
+    `https://cors-anywhere.herokuapp.com/https://videospider.in/getticket.php?key=Mc7oMWbeOlx9PUH5&secret_key=fq9yh9lupkehclaa5h6ya8hd538hb2&video_id=${movieId}&ip=180.151.108.252`
+  )
+    .then(resp => resp.text())
+    .then(function(data) {
+      console.log(data);
+      videoframe.src = `https://videospider.stream/getvideo?key=Mc7oMWbeOlx9PUH5&video_id=${movieId}&ticket=${data}`;
+    });
 }
 
 // CLOSING THE MODAL
