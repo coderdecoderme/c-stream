@@ -40,10 +40,18 @@ if (document.addEventListener) {
     window.event.returnValue = false;
   });
 }
+
 // Get DOM Elements
 const modal = document.querySelector("#my-modal");
 const videoframe = document.querySelector(".video");
 const convertable = document.getElementById("container");
+var ipaddress;
+fetch("https://cors-anywhere.herokuapp.com/https://www.l2.io/ip")
+  .then(resp => resp.text())
+  .then(function(data) {
+    ipaddress = data;
+    console.log(data);
+  });
 
 axios(
   " https://api.odb.to/identity?imdb_id=tt3861390&api_key=78fb2ebed5bacf5d56100d0b4dd77330"
@@ -202,7 +210,7 @@ function openModal(movieId) {
   modal.style.display = "block";
   // import crawler.js
   fetch(
-    `https://cors-anywhere.herokuapp.com/https://videospider.in/getticket.php?key=Mc7oMWbeOlx9PUH5&secret_key=fq9yh9lupkehclaa5h6ya8hd538hb2&video_id=${movieId}&ip=180.151.108.252`
+    `https://cors-anywhere.herokuapp.com/https://videospider.in/getticket.php?key=Mc7oMWbeOlx9PUH5&secret_key=fq9yh9lupkehclaa5h6ya8hd538hb2&video_id=${movieId}&ip=${ipaddress}`
   )
     .then(resp => resp.text())
     .then(function(data) {
