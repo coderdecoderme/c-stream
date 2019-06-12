@@ -1,6 +1,6 @@
 document.addEventListener(
   "keydown",
-  function() {
+  function () {
     if (event.keyCode == 123) {
       alert(
         "This function has been disabled to prevent you from stealing my code!"
@@ -24,7 +24,7 @@ document.addEventListener(
 if (document.addEventListener) {
   document.addEventListener(
     "contextmenu",
-    function(e) {
+    function (e) {
       alert(
         "This function has been disabled to prevent you from stealing my code!"
       );
@@ -33,7 +33,7 @@ if (document.addEventListener) {
     false
   );
 } else {
-  document.attachEvent("oncontextmenu", function() {
+  document.attachEvent("oncontextmenu", function () {
     alert(
       "This function has been disabled to prevent you from stealing my code!"
     );
@@ -46,9 +46,9 @@ const modal = document.querySelector("#my-modal");
 const videoframe = document.querySelector(".video");
 const convertable = document.getElementById("container");
 var ipaddress;
-fetch("https://cors-anywhere.herokuapp.com/https://www.l2.io/ip")
+fetch("https://cors-anywhere.herokuapp.com/https://l2.io/ip")
   .then(resp => resp.text())
-  .then(function(data) {
+  .then(function (data) {
     ipaddress = data;
     console.log(data);
   });
@@ -59,7 +59,7 @@ axios(
   console.log(res);
 });
 // GLOBAL CONTROLLER
-const globalContoller = (function() {
+const globalContoller = (function () {
   function eventListeners() {
     document.addEventListener("submit", e => {
       call();
@@ -201,7 +201,7 @@ const call = () => {
 function file_get_contents(filename) {
   fetch(filename)
     .then(resp => resp.text())
-    .then(function(data) {
+    .then(function (data) {
       return data;
     });
 }
@@ -210,10 +210,10 @@ function openModal(movieId) {
   modal.style.display = "block";
   // import crawler.js
   fetch(
-    `https://cors-anywhere.herokuapp.com/https://videospider.in/getticket.php?key=Mc7oMWbeOlx9PUH5&secret_key=fq9yh9lupkehclaa5h6ya8hd538hb2&video_id=${movieId}&ip=${ipaddress}`
-  )
+      `https://cors-anywhere.herokuapp.com/https://videospider.in/getticket.php?key=Mc7oMWbeOlx9PUH5&secret_key=fq9yh9lupkehclaa5h6ya8hd538hb2&video_id=${movieId}&ip=${ipaddress}`
+    )
     .then(resp => resp.text())
-    .then(function(data) {
+    .then(function (data) {
       console.log(data);
       videoframe.src = `https://videospider.stream/getvideo?key=Mc7oMWbeOlx9PUH5&video_id=${movieId}&ticket=${data}`;
     });
