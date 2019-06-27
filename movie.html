@@ -20,7 +20,56 @@
     <div class="content">
       <!-- THE MOVIE CONTAINER - SINGLE MOVE PAGE -->
       <main class="container"></main>
-
+      
+      <!-- <div class="container__single">
+        <div class="container__single__img">
+            <img class="img__single" src="${movie.Poster}"
+                alt="" />
+        </div>
+        <div class="container__single__details">
+            <h1 class="container__single__details-name">${movie.Title}</h1>
+            <div class="container__single__details-details">
+                <div class="details-year" title="Release Date">
+                    <img src="img/calendar.svg" class="icon"> ${movie.Year}
+                </div>
+                <div class="details-director" title="Movie Director">
+                <img src="img/announcer.svg" class="icon"> ${movie.Director}
+                </div>
+                <div class="details-time" title="Total time">
+                <img src="img/time.svg" class="icon"> ${movie.Runtime}
+                </div>
+                <div class="details-rating" title="Internet Movie Database Value">
+                <img src="img/award.svg" class="icon"> 
+                </div>
+                <div class="details-rating" title="Internet Movie Database Value">
+                <img src="img/cinema.svg" class="icon">${movie.Genre}
+            </div>
+            </div>
+            <div class="container__single__details-plot">
+               ${movie.Plot}
+            </div>
+            <div class="container__single__buttons">
+                <a href="https://www.imdb.com/title/${
+                  movie.imdbID
+                }" target="_blank" title="IMDB" class="button details__imdb">
+                    IMDB <span class="imdb__score">${
+                      movie.imdbRating
+                    }</span>
+                </a>
+                <a href="${
+                  movie.Website
+                }" title="" target="_blank"class="button details__imdb">WEBSITE
+                </a>
+                <a href="#" title="IMDB" class="button details__imdb" onclick="openModal('${imdbid}')">
+                <img src="img/cinema.svg" alt="CINEMA" class="icon"> <span class="imdb__score">MOVIE</span>
+                </a>
+            </div>
+            <a class="button details__go-back" href="index.html">
+                BACK
+            </a>
+        </div>
+    </div> -->
+    
       <!-- THE MOVIE - POP_up MODAL -->
       <div id="my-modal" class="modal">
         <div class="modal-content">
@@ -38,6 +87,7 @@
 
   <!-- INCLUDING AXIOS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mobile-detect@1.4.3/mobile-detect.min.js"></script>
   <script src="./js/app.js"></script>
 
   <script>
