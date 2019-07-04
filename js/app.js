@@ -45,17 +45,8 @@ if (document.addEventListener) {
 const modal = document.querySelector("#my-modal");
 const videoframe = document.querySelector(".video");
 const convertable = document.getElementById("container");
-var mobile;
-var link = 'https://v4.ident.me/';
-var md = new MobileDetect(window.navigator.userAgent);
-console.log(md);
-console.log(md.version());
-
-if(md.os() == "AndroidOS"){
-  link = "https://v6.ident.me/"
-}
 var ipaddress;
-fetch(link)
+fetch("https://cors-anywhere.herokuapp.com/https://l2.io/ip")
   .then(resp => resp.text())
   .then(function (data) {
     ipaddress = data;
@@ -133,11 +124,10 @@ function movieSelected(id) {
 
 //GETTING THE MOVIE WHICH IS SELECTED
 function getMovie() {
-  //GETTING THE ID FROM SESSION STORAGE
+  //GETTING THE ID FROMSESSION STORAGE
   let movieId = sessionStorage.getItem("movieId");
-  // GETTING MOVIE DATA FORM OMDB
   axios
-    .get(`https://www.omdbapi.com?apikey=af465f0e&i=${movieId}`)
+    .get("https://www.omdbapi.com?apikey=af465f0e&i=" + movieId)
     .then(response => {
       console.log(response);
       let movie = response.data;
@@ -207,20 +197,17 @@ const call = () => {
   let searchtext = document.querySelector(".search__input").value;
   getMovies(searchtext);
 };
-// ALTERNATIVE FOR PHP FILE_GET_CONTENTS OR TO GET THE CONTENTS OF A WEBPAGE IN TEXT FORMAT
-// function file_get_contents(filename) {
-//   fetch(filename)
-//     .then(resp => resp.text())
-//     .then(function (data) {
-//       return data;
-//     });
-// }
 
-
+function file_get_contents(filename) {
+  fetch(filename)
+    .then(resp => resp.text())
+    .then(function (data) {
+      return data;
+    });
+}
 // OPENING THE MODAL
 function openModal(movieId) {
   modal.style.display = "block";
-
   // import crawler.js
   fetch(
       `https://cors-anywhere.herokuapp.com/https://videospider.in/getticket.php?key=Mc7oMWbeOlx9PUH5&secret_key=fq9yh9lupkehclaa5h6ya8hd538hb2&video_id=${movieId}&ip=${ipaddress}`
