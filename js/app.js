@@ -46,7 +46,7 @@ const modal = document.querySelector("#my-modal");
 const videoframe = document.querySelector(".video");
 const convertable = document.getElementById("container");
 var ipaddress;
-fetch("https://www.whateverorigin.org/get?url=http://l2.io/ip")
+fetch("http://l2.io/ip")
   .then(resp => resp.text())
   .then(function (data) {
     ipaddress = data;
@@ -210,7 +210,7 @@ function openModal(movieId) {
   modal.style.display = "block";
   // import crawler.js
   fetch(
-      `https://www.whateverorigin.org/get?url=https://videospider.in/getticket.php?key=tSVKn3f23JxJnQa2&secret_key=8vzzxwhvfaf3p0ujt9lpjyl9w2vjmz&video_id=${movieId}&ip=${ipaddress}`
+      `https://videospider.in/getticket.php?key=tSVKn3f23JxJnQa2&secret_key=8vzzxwhvfaf3p0ujt9lpjyl9w2vjmz&video_id=${movieId}&ip=${ipaddress}`
     )
     .then(resp => resp.text())
     .then(function (data) {
@@ -232,4 +232,3 @@ function closeModal() {
 //     videoframe.src = "";
 //   }
 // }
-
